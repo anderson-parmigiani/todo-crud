@@ -1,6 +1,8 @@
+import PropTypes from "prop-types";
+
 const TodoFilter = ({ filter, changeFilter }) => {
   return (
-    <section className="container mx-auto mt-8 ">
+    <section className="container mx-auto mt-4 ">
       <div className="flex justify-center gap-4 rounded-md bg-white p-4 transition-all duration-1000 dark:bg-gray-800">
         <button
           className={`${
@@ -35,6 +37,11 @@ const TodoFilter = ({ filter, changeFilter }) => {
       </div>
     </section>
   );
+};
+
+TodoFilter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 export default TodoFilter;

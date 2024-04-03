@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const TodoCreate = ({ createTodo }) => {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ const TodoCreate = ({ createTodo }) => {
   return (
     <form
       onSubmit={handleSubmitAddTodo}
-      className="mt-8 flex items-center gap-4 overflow-hidden rounded-md bg-white px-4 py-4 transition-all duration-1000 dark:bg-gray-800"
+      className="flex items-center gap-4 overflow-hidden rounded-md bg-white px-4 py-4 transition-all duration-1000 dark:bg-gray-800"
     >
       <span className="inline-block h-5 w-5 rounded-full border-2"></span>
       <input
@@ -29,6 +30,10 @@ const TodoCreate = ({ createTodo }) => {
       />
     </form>
   );
+};
+
+TodoCreate.propTypes = {
+  createTodo: PropTypes.func.isRequired,
 };
 
 export default TodoCreate;

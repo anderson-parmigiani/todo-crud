@@ -1,6 +1,8 @@
 import IconCheck from "./icons/IconCheck";
 import IconCross from "./icons/IconCross";
+
 import React from "react";
+import PropTypes from "prop-types";
 
 const TodoItem = React.forwardRef(
   ({ todo, updateTodo, removeTodo, ...props }, ref) => {
@@ -37,5 +39,13 @@ const TodoItem = React.forwardRef(
     );
   }
 );
+
+TodoItem.displayName = "TodoItem";
+
+TodoItem.propTypes = {
+  todo: PropTypes.object.isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+};
 
 export default TodoItem;

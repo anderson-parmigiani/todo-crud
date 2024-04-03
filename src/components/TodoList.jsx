@@ -1,4 +1,5 @@
 import { Droppable, Draggable } from "@hello-pangea/dnd";
+import PropTypes from "prop-types";
 
 import TodoItem from "./TodoItem";
 
@@ -9,7 +10,7 @@ const TodoList = ({ todos, updateTodo, removeTodo }) => {
         <div
           ref={droppableProvider.innerRef}
           {...droppableProvider.droppableProps}
-          className="mt-8 overflow-hidden rounded-t-md bg-white transition-all duration-1000 dark:bg-gray-800 [&>article]:p-4"
+          className="mt-4 overflow-hidden rounded-t-md bg-white transition-all duration-1000 dark:bg-gray-800 [&>article]:p-4"
         >
           {todos.map((todo, index) => (
             <Draggable key={todo.id} index={index} draggableId={`${todo.id}`}>
@@ -31,6 +32,12 @@ const TodoList = ({ todos, updateTodo, removeTodo }) => {
       )}
     </Droppable>
   );
+};
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;
